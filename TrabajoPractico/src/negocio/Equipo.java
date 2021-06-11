@@ -16,15 +16,16 @@ public class Equipo {
     private String nombre;
     private String color;
     private String descripcion;
-    private int puntos;
+    private int puntos ;
     private List<Jugadores> plantilla;
     private DirectorTecnico directorTecnico;
     private boolean ganador = false;
     
-    public Equipo(String nombre, String color){
+    public Equipo(String nombre, String color, DirectorTecnico dt){
         this.nombre = nombre;
         this.color = color;
         this.puntos = 0;
+        this.directorTecnico = dt;
         this.plantilla = new ArrayList<>();
     }
     public void setDescripcion(String desc){
@@ -57,6 +58,10 @@ public class Equipo {
     public void setPuntos(int puntos) {
         this.puntos = puntos;
     }
+
+    public void sumarPuntos(int puntos) {
+        this.puntos += puntos;
+    }
     
     public void agregarJugador(Jugadores jugadores){
         this.plantilla.add(jugadores);
@@ -64,6 +69,12 @@ public class Equipo {
 
     public void setGanador(boolean ganador) {
         this.ganador = ganador;
+    }
+
+    @Override
+    public String toString() {
+       
+        return "Equipo: " + this.nombre +"/n Jugadores: "+ this.plantilla+ "Con: " + this.puntos;
     }
     
     

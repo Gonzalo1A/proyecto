@@ -16,12 +16,12 @@ public class Partido {
     private Equipo local;
     private Equipo visitante;
     private Resultado resultado;
-    private Date fecha;
+    private boolean disputado;
 
-    public Partido(Equipo local, Equipo visitante, Date fecha) {
+    public Partido(Equipo local, Equipo visitante) {
         this.local = local;
         this.visitante = visitante;
-        this.fecha = fecha;
+        this.disputado = false;
     }
 
     public void golLocal() {
@@ -30,6 +30,14 @@ public class Partido {
 
     public void golVisitante() {
         resultado.getGolVisitante();
+    }
+
+    public boolean isDisputado() {
+        return disputado;
+    }
+
+    public void setDisputado(boolean disputado) {
+        this.disputado = disputado;
     }
 
     public Equipo ganador() {
@@ -41,7 +49,8 @@ public class Partido {
             return this.visitante;
         }
     }
-//    public void setGanador(){
-//        setResultado().setGanador(true);
-//    }
+    public void sumarPuntos(){
+        ganador().sumarPuntos(1);
+    }
+
 }
