@@ -5,7 +5,7 @@
  */
 package negocio;
 
-import java.util.Date;
+
 
 /**
  *
@@ -22,8 +22,14 @@ public class Partido {
         this.local = local;
         this.visitante = visitante;
         this.disputado = false;
+        resultado = new Resultado();
     }
 
+    public Resultado getResultado() {
+        return resultado;
+    }
+
+    
     public void golLocal() {
         resultado.golLocal();
     }
@@ -32,12 +38,12 @@ public class Partido {
         resultado.getGolVisitante();
     }
 
-    public boolean isDisputado() {
+    public boolean getDisputado() {
         return disputado;
     }
-
-    public void setDisputado(boolean disputado) {
-        this.disputado = disputado;
+    
+    public void setDisputado() {
+        this.disputado = true;
     }
 
     public Equipo ganador() {
@@ -52,5 +58,12 @@ public class Partido {
     public void sumarPuntos(){
         ganador().sumarPuntos(1);
     }
+
+    @Override
+    public String toString() {
+        return "El Equipo: " + this.local.getNombre() + " se enfrenta al equipo: " 
+                + this.visitante.getNombre() + "\n";
+    }
+    
 
 }

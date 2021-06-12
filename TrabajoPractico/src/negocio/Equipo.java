@@ -21,12 +21,12 @@ public class Equipo {
     private DirectorTecnico directorTecnico;
     private boolean ganador = false;
     
-    public Equipo(String nombre, String color, DirectorTecnico dt){
+    public Equipo(String nombre, String color, DirectorTecnico dt, List plantilla){
         this.nombre = nombre;
         this.color = color;
         this.puntos = 0;
         this.directorTecnico = dt;
-        this.plantilla = new ArrayList<>();
+        this.plantilla = plantilla;
     }
     public void setDescripcion(String desc){
         this.descripcion = desc;
@@ -74,7 +74,7 @@ public class Equipo {
     @Override
     public String toString() {
        
-        return "Equipo: " + this.nombre +"/n Jugadores: "+ this.plantilla+ "Con: " + this.puntos;
+        return "Equipo: " + this.nombre +"\n Jugadores: \n"+ this.plantilla+ "\n Con: " + this.puntos + "pts";
     }
     
     

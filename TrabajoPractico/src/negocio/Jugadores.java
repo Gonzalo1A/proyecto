@@ -34,5 +34,11 @@ public class Jugadores extends Persona{
     public void setPosicion(String posicion) {
         this.posicion = posicion;
     }
+
+    @Override
+    public String toString() {
+        return super.getNombreYApell() + " pos: " + this.posicion + "\n";
+    }
+    
     
 }

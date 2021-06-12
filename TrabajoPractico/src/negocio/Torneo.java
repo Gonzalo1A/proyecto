@@ -23,8 +23,10 @@ public class Torneo {
         this.nombre = nombre;
         this.equipos = new ArrayList<>();
     }
-
-    public List<Partido> encuentros() {
+    public void agregarEquipo(Equipo e){
+        this.equipos.add(e);
+    }
+    public ArrayList<Partido> encuentros() {
         Partido p1 = new Partido(this.equipos.get(0), this.equipos.get(1));
         Partido p2 = new Partido(this.equipos.get(2), this.equipos.get(3));
         ArrayList<Partido> encuentros = new ArrayList();
@@ -35,13 +37,13 @@ public class Torneo {
 
     public void jugar() {
         for (Partido p : encuentros()) {
-            p.setDisputado(true);
+            p.setDisputado();
             p.sumarPuntos();
         }
         orden();
     }
 
-    private void orden() {
+    public void orden() {
         Collections.sort(this.equipos, new Comparator<Equipo>() {
             @Override
             public int compare(Equipo e1, Equipo e2) {
